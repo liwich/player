@@ -38,7 +38,13 @@ export class SongsListPage {
       }
     )
   }
-  
+
+  goToPlaySong(song){
+    this.navCtrl.push('PlaySongPage', {
+      song:song
+    });
+  }
+
   events(evt){
     this.getSongs(evt);
   }
