@@ -14,6 +14,10 @@
     <div class="full-image" [style.background]="'url(' + song.image_large + ')'"></div>
 
     <ion-row>
+      <progress-bar class="width-100p" [progress]="10"></progress-bar>
+    </ion-row>
+
+    <ion-row>
       <ion-col text-center>
         <h2>{{song.title}}</h2>
       </ion-col>
@@ -27,7 +31,7 @@
 
     <ion-row>
       <ion-col text-center>
-         <ion-icon class="font-size-60" name="play"></ion-icon>
+         <ion-icon class="font-size-60" name="play" (click)="playSong()"></ion-icon>
       </ion-col>
     </ion-row>
 
