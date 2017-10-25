@@ -22,7 +22,7 @@
   <ion-list >
     <ion-item *ngFor="let song of songs">
       <ion-thumbnail item-start (click)="goToPlaySong(song)">
-        <img [src]="song.image_small">
+        <img [src]="song.image_large">
       </ion-thumbnail>
       <h2>{{song.title}}</h2>
       <p>{{song.artist}}</p>

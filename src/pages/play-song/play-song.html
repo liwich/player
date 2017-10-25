@@ -7,6 +7,31 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
+
+  <div *ngIf="song">
+
+    <div class="full-image" [style.background]="'url(' + song.image_large + ')'"></div>
+
+    <ion-row>
+      <ion-col text-center>
+        <h2>{{song.title}}</h2>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col text-center>
+        <p class="font-size-20 no-margin">{{song.artist}}</p>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col text-center>
+         <ion-icon class="font-size-60" name="play"></ion-icon>
+      </ion-col>
+    </ion-row>
+
+
+  </div>
 
 </ion-content>
