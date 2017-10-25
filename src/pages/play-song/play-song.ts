@@ -10,6 +10,8 @@ import { Song } from '../../models/song.interface';
 export class PlaySongPage {
 
   public song: Song;
+  public progress: number = 0;
+  public isPlaying: boolean = false;
   public progressInterval: any;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.song = navParams.get('song');
@@ -20,23 +22,20 @@ export class PlaySongPage {
   }
 
   ionViewDidLeave(){
-    this.pauseTrack();
+    this.pauseSong();
   }
 
   playSong(){
-       this.progressInterval = setInterval(() => {
-
-           this.song.progress < 100 ? this.song.progress++ : this.song.progress = 0;
-           console.log(this.song.progress);
-
-       }, 1000);
+    this.isPlaying = true;
+    this.progressInterval = setInterval(() => {
+      this.progress < 100 ? this.progress++ : this.progress = 0;
+    }, 1000);
   }
 
-  pauseTrack(){
-
-        clearInterval(this.progressInterval);
-
-    }
+  pauseSong(){
+    this.isPlaying = false;
+    clearInterval(this.progressInterval);
+  }
 
 
 }
