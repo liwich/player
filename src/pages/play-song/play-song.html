@@ -1,0 +1,45 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Play Song</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <div *ngIf="song">
+
+    <div class="full-image" [style.background]="'url(' + song.image_large + ')'"></div>
+
+    <ion-row>
+      <progress-bar class="width-100p" [progress]="progress"></progress-bar>
+    </ion-row>
+
+    <ion-row>
+      <ion-col text-center>
+        <h2>{{song.title}}</h2>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col text-center>
+        <p class="font-size-20 no-margin">{{song.artist}}</p>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col text-center>
+         <ion-icon
+           [name]="!isPlaying ? 'play' : 'pause'"
+           class="font-size-60"
+           (click)="!isPlaying ? playSong() : pauseSong()">
+         </ion-icon>
+      </ion-col>
+    </ion-row>
+
+
+  </div>
+
+</ion-content>

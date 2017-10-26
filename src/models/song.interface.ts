@@ -8,4 +8,5 @@ export interface Song {
     open_url : string;
     song_id : string;
     isFavorite?: boolean;
+    progress: number;
 }

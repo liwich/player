@@ -11,15 +11,22 @@
 </ion-header>
 
 <ion-content >
-  
-  <ion-list>
+    <ion-refresher (ionRefresh)="events($event)">
+        <ion-refresher-content
+          pullingIcon="arrow-dropdown"
+          pullingText="Pull to refresh"
+          refreshingSpinner="circles"
+          refreshingText="Refreshing...">
+        </ion-refresher-content>
+      </ion-refresher>
+  <ion-list >
     <ion-item *ngFor="let song of songs">
-      <ion-thumbnail item-start>
-        <img [src]="song.image_small">
+      <ion-thumbnail item-start (click)="goToPlaySong(song)">
+        <img [src]="song.image_large">
       </ion-thumbnail>
       <h2>{{song.title}}</h2>
       <p>{{song.artist}}</p>
-      <button ion-button clear large item-end> 
+      <button ion-button clear large item-end>
         <ion-icon *ngIf="song.isFavorite" name="md-heart" color="danger"> </ion-icon>
         <ion-icon *ngIf="!song.isFavorite" name="md-heart-outline" color="danger" ></ion-icon>
       </button>
